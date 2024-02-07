@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body class="bg-success text-white bg-opacity-75">
+
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+
+	<div class="container">
+		<h1 th:text="#{text.cliente.form.titulo}" class="h2 pb-2 mb-4 text-light border-bottom border-success"></h1>
+
+		<form th:action="@{/form}" th:object="${cliente}" method="post" enctype="multipart/form-data">
+
+			<div class="mb-3">
+				<label class="col-sm-2 col-form-label" th:text="#{text.cliente.nombre}">Nombre</label>
+				<div class="col-sm-3">
+					<input type="text" th:field="*{nombre}" class="form-control"
+						th:errorclass="'form-control alert alert-danger'" />
+					<small class="border border-white bg-danger text-light rounded"
+						th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="col-sm-2 col-form-label" th:text="#{text.cliente.apellido}">Apellido</label>
+				<div class="col-sm-3">
+					<input type="text" th:field="*{apellido}" class="form-control"
+						th:errorclass="'form-control alert alert-danger'" />
+					<small class="border border-white bg-danger text-light rounded"
+						th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
+				</div>
+			</div>
+
+			<div class="mb-4">
+				<label class="col-sm-2 col-form-label" th:text="#{text.cliente.email}">Email</label>
+				<div class="col-sm-3">
+					<input type="email" th:field="*{email}" class="form-control"
+						th:errorclass="'form-control alert alert-danger'" />
+					<small class="border border-white bg-danger text-light rounded"
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+				</div>
+			</div>
+
+			<div class="mb-4">
+				<label class="col-sm-2 col-form-label" th:text="#{text.cliente.createAt}">Fecha</label>
+				<div class="col-sm-3">
+					<input type="text" th:field="*{createAt}" class="form-control"
+						th:errorclass="'form-control alert alert-danger'" />
+					<small class="border border-white bg-danger text-light rounded"
+						th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></small>
+				</div>
+			</div>
+
+			<div class="mb-4">
+				<label for="file" class="col-sm-2 col-form-label" th:text="#{text.cliente.foto}">Foto</label>
+				<input type="file" name="file" class="form-control" />
+			</div>
+
+			<div class="mb-3">
+				<div class="col-sm-3">
+					<input type="submit" th:value="#{text.cliente.form.btn.crear}" class="btn btn-dark" />
+					<a th:href="@{/listar}" class="btn btn-danger btn-sx my-2" th:text="#{text.global.cancelar}">Volver</a>
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+	<br><br><br>
+	<div class="py-5" style="position: relative; bottom: 0; width: 100%;">
+		<footer th:replace="layout/layout :: footer"></footer>
+	</div>
+
+</body>
+
+</html>

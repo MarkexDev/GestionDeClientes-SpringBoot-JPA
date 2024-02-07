@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body class="bg-success text-white bg-opacity-75">
+
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+
+	<h1 class="container text-center" th:text="#{text.index.titulo}">BIENVENID@ AL SISTEMA DE REGISTRO DE CLIENTES</h1>
+
+	<div id="carouselExampleAutoplaying" class="carousel slide my-4" data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="../static/img/imagenInicio.jpg" class="rounded mx-auto d-block w-50" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="../static/img/imagenInicio.jpg" class="rounded mx-auto d-block w-50" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="../static/img/imagenInicio.jpg" class="rounded mx-auto d-block w-50" alt="...">
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+			data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+			data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+
+</html>
